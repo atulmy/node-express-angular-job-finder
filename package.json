@@ -1,0 +1,21 @@
+{
+    "name": "JobFinder",
+    "version": "0.0.1",
+    "description": "Find jobs, easily!",
+    "author": "Atul Yadav",
+
+    "main": "server.js",
+
+    "dependencies": {
+        "express": "~4.13.4",
+        "mongoose": "~3.6.2",
+        "morgan": "~1.2.2",
+        "body-parser": "~1.5.2",
+        "method-override": "~2.1.2"
+    },
+
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/atulmy/nodejs-jobfinder.git"
+    }
+}

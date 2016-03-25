@@ -17,7 +17,8 @@
     mongoose.connect('mongodb://localhost:27017/jobsearch');
 
 // Express
-    app.use(express.static(__dirname + '/public')); // set the static files location /public/img
+    var staticRootPath = __dirname + '/public';
+    app.use(express.static(staticRootPath)); // set the static files location /public/
 
 // Mix
     app.use(morgan('dev')); // logging to console
@@ -36,31 +37,68 @@
         description: String,
         location: String
     });
-    var job1 = new Jobs({
-        title: "title",
-        description: "description",
-        location: "location"
+    // seed jobs
+    Jobs.find(function(error, jobs) {
+        if(jobs.length == 0) {
+            var jobNew = new Jobs({
+                title: "title",
+                description: "description",
+                location: "location"
+            });
+            jobNew.save();
+        }
     });
-    job1.save();
-
 
 /* ---------- Routes ---------- */
+// Front
+    app.get('/', function(request, response) {
+        response.sendFile('app.html', {root: staticRootPath});
+    });
+
 // List
-    app.get('/api/list', function(req, res) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    app.get('/api/jobs', function(request, response) {
+        Jobs.find(function(error, jobs) {
+            if (error) {
+                response.send(error);
+            }
 
-        // use mongoose to get all todos in the database
-        Jobs.find(function(err, todos) {
-
-            // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-            if (err)
-                res.send(err)
-
-            res.json(todos); // return all todos in JSON format
+            response.json(jobs);
         });
     });
 
+// Add
+    app.post('/api/job', function(request, response) {
+        var job = {
+            title: request.body.title,
+            description: request.body.description,
+            location: request.body.location,
+        };
+
+        Jobs.create(job, function(error, success) {
+            if(error) {
+                response.send(error);
+            }
+
+            response.redirect('/');
+        });
+    });
+
+// Single
+    app.get('/api/job/:id', function(request, response) {
+        var job = {
+            title: request.body.title,
+            description: request.body.description,
+            location: request.body.location,
+        };
+
+        Jobs.create(job, function(error, success) {
+            if(error) {
+                response.send(error);
+            }
+
+            response.redirect('/');
+        });
+    });
 
 /* ---------- Start App ---------- */
 var port = 8080;

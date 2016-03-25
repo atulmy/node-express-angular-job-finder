@@ -1,20 +1,57 @@
-add
+<div class="row">
+    <div class="col m9">
+        <h5>Post a job now</h5>
 
-<form ng-submit="job.add()">
-    <input type="text" ng-model="job.data.title" ng-minlength="1" ng-maxlength="12" required="required" />
+        <div class="divider"></div>
 
-    <br/>
+        <form ng-submit="job.add()">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" id="job-data-title" ng-model="job.data.title" ng-minlength="1" ng-maxlength="12" required="required" />
+                    <label for="job-data-title">Title</label>
+                </div>
+            </div>
 
-    <textarea ng-model="job.data.description" ng-minlength="1" ng-maxlength="500" required="required"></textarea>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea ng-model="job.data.description" id="job-data-description" class="materialize-textarea" required="required"></textarea>
+                    <label for="job-data-description">Description</label>
+                </div>
+            </div>
 
-    <br/>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="number" id="job-data-salary" ng-model="job.data.salary" ng-minlength="1" ng-maxlength="12" required="required" />
+                    <label for="job-data-salary">Salary</label>
+                </div>
 
-    <select ng-model="job.data.location" required="required">
-        <option value="bangalore">Bangalore</option>
-        <option value="mumbai">Mumbai</option>
-    </select>
+                <div class="input-field col s6">
+                    <select ng-model="job.data.location" required="required">
+                        <option value="" disabled selected>Choose location</option>
+                        <option value="1">Bangalore</option>
+                        <option value="2">Mumbai</option>
+                    </select>
+                    <label>Location</label>
+                </div>
+            </div>
 
-    <br/>
+            <div class="row">
+                <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Post
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 
-    <button type="submit">Post</button>
-</form>
+    <div class="col m3">
+
+    </div>
+</div>
+
+<script>
+    $( function() {
+        $('select').material_select();
+    });
+</script>

@@ -1,0 +1,120 @@
+/* ------------------------ Common ------------------------ */
+html, body { background-color: #fafafa; }
+.display-none { display: none; }
+.clearfix { clear: both; }
+.overflow-hidden { overflow: hidden; }
+/* ------------------------ / Common ------------------------ */
+
+
+/* --------------- Margin and Padding --------------- */
+    /* left */
+    .p10 { padding-left: 10px; }
+    .ml10 { margin-left: 10px; }
+    .ml20 { margin-left: 20px; }
+
+    /* bottom */
+    .mb0 { margin-bottom: 0px; }
+
+    /* right */
+    .mr20 { margin-right: 20px; }
+
+    /* top */
+    .mt0 { margin-top: 0px !important; }
+    .mt10 { margin-top: 10px !important; }
+    .mt20 { margin-top: 20px !important; }
+/* --------------- / Margin and Padding --------------- */
+
+
+/* --------------- Typography --------------- */
+    .tx-uppercase { text-transform: uppercase; }
+    .tx-underlined { text-decoration: underline; }
+    .tx-italic { font-style: italic; }
+    /* size */
+        .tx-xxs { font-size: 10px; }
+        .tx-xs { font-size: 12px; }
+        .tx-sm { font-size: 14px; }
+        .tx-md { font-size: 18px; }
+        .tx-lg { font-size: 22px; }
+        .tx-xl { font-size: 28px; }
+        .tx-xxl { font-size: 32px; }
+    /* thickness */
+        .tx-thin { font-weight: 100; }
+        .tx-light { font-weight: 200; }
+        .tx-lighter { font-weight: 300; }
+        .tx-bold { font-weight: 500; }
+        .tx-bolder { font-weight: 700; }
+    /* line height */
+        .lh-normal { line-height: normal; }
+/* --------------- / Typography --------------- */
+
+
+/* --------------- Layout --------------- */
+    /* horizontal scroll */
+    .horizontal-scroll {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space:nowrap;
+        clear: both;
+    }
+    .horizontal-scroll .horizontal-scroll-child {
+        cursor: pointer;
+        display:inline-block;
+        *display:inline;/* For IE7*/
+        *zoom:1;/* For IE7*/
+        vertical-align:top;
+        margin-right: 10px;
+    }
+    .horizontal-scroll .horizontal-scroll-child .card .card-content {
+        white-space: normal;
+        word-wrap: break-word;
+    }
+/* --------------- / Layout --------------- */
+
+
+
+/* ------------------------ Header ------------------------ */
+    #app-header .brand-logo {
+        margin-left: 20px;
+    }
+/* ------------------------ / Header ------------------------ */
+
+
+/* ------------------------ Content ------------------------ */
+    #app-content .content {
+        padding: 20px;
+    }
+/* ------------------------ / Content ------------------------ */
+
+
+/* ------------------------ Footer ------------------------ */
+
+/* ------------------------ / Footer ------------------------ */
+
+
+/* ------------------ Materialze Overrides ------------------*/
+header, main, footer {
+    padding-left: 220px;
+}
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+}
+h1 i, h2 i, h3 i, h4 i, h5 i, h6 i {
+    font-size: inherit !important;
+    line-height: inherit !important;
+    vertical-align: bottom;
+}
+.side-nav i {
+    vertical-align: middle;
+}
+.side-nav li {
+    line-height: 45px;
+}
+.side-nav .collapsible .collapsible-body li, .side-nav .collapsible .collapsible-body li a {
+    padding: 5px 0px;
+    line-height: normal;
+    height: auto;
+}
+/* ------------------ / Materialze Overrides ------------------*/

@@ -21,7 +21,8 @@ module.exports = function(app) {
             var job = {
                 title: request.body.title,
                 description: request.body.description,
-                location: request.body.location,
+                salary: request.body.salary,
+                location: request.body.location
             };
 
             Jobs.create(job, function(error, success) {

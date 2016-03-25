@@ -29,25 +29,13 @@ module.exports = function(app) {
                     response.send(error);
                 }
 
-                response.redirect('/');
+                response.json(success);
             });
         });
 
         // Single
         app.get('/api/job/:id', function(request, response) {
-            var job = {
-                title: request.body.title,
-                description: request.body.description,
-                location: request.body.location,
-            };
 
-            Jobs.create(job, function(error, success) {
-                if(error) {
-                    response.send(error);
-                }
-
-                response.redirect('/');
-            });
         });
 
     // Front (let angular handle the routes)

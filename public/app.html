@@ -25,17 +25,17 @@
     <script type="text/javascript" src="js/libraries/materialize.min.js"></script>
 
     <!-- APP Services -->
-    <script type="text/javascript" src="js/services/jobs.js"></script>
+    <script type="text/javascript" src="js/services/all.js"></script>
     <!-- APP Controllers -->
-    <script type="text/javascript" src="js/controllers/jobs.js"></script>
+    <script type="text/javascript" src="js/controllers/all.js"></script>
     <!-- APP -->
     <script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
     <header id="app-header">
         <!-- Sidebar -->
-        <ul class="side-nav fixed" id="nav-mobile" style="width: 220px;">
-            <li class="bold" style="border-bottom: 1px solid #ccc;"><a class="waves-effect waves-light center-align red-text" href="/">Job Finder</a></li>
+        <ul class="side-nav fixed" id="nav-mobile" style="width: 220px;" ng-controller="SidebarController">
+            <li class="bold" style="border-bottom: 1px solid #ccc;"><a class="waves-effect waves-light center-align red-text tx-lg tx-uppercase" href="/">Job Finder</a></li>
 
             <li class="no-padding">
                 <ul class="collapsible" data-collapsible="accordion">

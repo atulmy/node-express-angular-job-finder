@@ -34,7 +34,7 @@ html, body { background-color: #fafafa; }
         .tx-xs { font-size: 12px; }
         .tx-sm { font-size: 14px; }
         .tx-md { font-size: 18px; }
-        .tx-lg { font-size: 22px; }
+        .tx-lg { font-size: 22px !important; }
         .tx-xl { font-size: 28px; }
         .tx-xxl { font-size: 32px; }
     /* thickness */

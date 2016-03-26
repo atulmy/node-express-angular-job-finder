@@ -1,5 +1,23 @@
-<ul>
-    <li ng-repeat="job in jobs">
-        {{ job.title }}
-    </li>
-</ul>
+<div class="row">
+    <div class="col m9">
+        <div class="row mb0" ng-repeat="job in jobs">
+            <div class="col s12">
+                <div class="card white">
+                    <div class="card-content">
+                        <span class="card-title">{{ job.title }}</span>
+                        <p class="teal-text tx-md">Salary Rs. {{ job.salary }} per month</p>
+                        <p class="mt10">{{ job.description }}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#" class="btn">Apply</a>
+                        <a href="#" class="btn-flat waves-effect waves-darken">More info</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col m3">
+        <img src="http://placehold.it/300x550" alt="Advertisement" class="responsive-img" />
+    </div>
+</div>

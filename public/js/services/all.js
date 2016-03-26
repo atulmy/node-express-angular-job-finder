@@ -16,3 +16,13 @@ appServices.factory('JobsService', ['$http', function($http) {
         }
     }
 }]);
+
+appServices.factory('FilterService', function() {
+    return {
+        sortBy: 'freshness',
+        filterBy: {
+            min: 0,
+            max: 3999
+        }
+    }
+});

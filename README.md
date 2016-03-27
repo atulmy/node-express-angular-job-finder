@@ -1,5 +1,5 @@
 # JobFinder
-Find jobs, easily.
+A Sample app using MEAN Stack. Demo: http://104.131.125.120:8080/
 
 ## Built Using
 - MongoDB

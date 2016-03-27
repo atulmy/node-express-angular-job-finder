@@ -37,12 +37,7 @@
                         </div>
 
                         <div class="input-field col s6">
-                            <select ng-model="job.data.location" required="required">
-                                <option value="0" disabled="disabled" selected="selected">Choose location</option>
-                                <option value="1">Bangalore</option>
-                                <option value="2">Mumbai</option>
-                            </select>
-                            <label>Location</label>
+                            <select ng-model="job.data.location" class="browser-default" ng-options="city.id as city.name for city in cities"></select>
                         </div>
                     </div>
 
@@ -62,9 +57,3 @@
         </div>
     </div>
 </main>
-
-<script>
-    $(function() {
-        $('select').material_select();
-    });
-</script>

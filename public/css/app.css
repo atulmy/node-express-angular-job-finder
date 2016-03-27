@@ -118,4 +118,9 @@ h1 i, h2 i, h3 i, h4 i, h5 i, h6 i {
     line-height: 25px;
     height: auto;
 }
+select.browser-default {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+}
 /* ------------------ / Materialze Overrides ------------------*/

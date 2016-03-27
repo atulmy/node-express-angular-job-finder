@@ -17,3 +17,14 @@ appServices.factory('JobsService', ['$http', function($http) {
         }
     }
 }]);
+
+appServices.factory('CitiesService', function() {
+    return {
+        list: function() {
+            return [
+                {id: 1, name: 'Bangalore'},
+                {id: 2, name: 'Mumbai'}
+            ];
+        }
+    }
+});

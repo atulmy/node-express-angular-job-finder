@@ -21,8 +21,8 @@ module.exports = function(app) {
                 queries.location = params.location;
             }
             if(params.text != '') {
-                // queries.title = /.*params.text.*/;
-                // queries.description = /.*params.description.*/;
+                var regex = new RegExp(params.text, "i")
+                queries.title = regex;
             }
 
             // Filter
@@ -78,13 +78,8 @@ module.exports = function(app) {
             });
         });
 
-        // Single
-        app.get('/api/job/:id', function(request, response) {
-
+    // Front (angular handles the routes except /api/* calls)
+        app.get('*', function(request, response) {
+            response.sendFile('app.html', {root: app.get('static_root_path')});
         });
-
-    // Front (let angular handle the routes)
-    app.get('*', function(request, response) {
-        response.sendFile('app.html', {root: app.get('static_root_path')});
-    });
 };

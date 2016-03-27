@@ -50,15 +50,13 @@
                                                 <input type="text" ng-model="search.text" placeholder="Eg Driver" />
                                             </div>
                                         </div>
+
                                         <div class="col s4">
                                             <div class="input-field">
-                                                <select ng-model="search.location">
-                                                    <option value="0" selected="selected">Any</option>
-                                                    <option value="1">Bangalore</option>
-                                                    <option value="2">Mumbai</option>
-                                                </select>
+                                                <select ng-model="search.location" class="browser-default" ng-options="city.id as city.name for city in cities"></select>
                                             </div>
                                         </div>
+
                                         <div class="col s3 center-align">
                                             <div class="input-field">
                                                 <button class="btn waves-effect waves-light" type="submit" name="action">Search</button>
@@ -80,9 +78,20 @@
                                 <p class="mt10">{{ job.description }}</p>
                                 <p class="mt10">Location: {{ job.location }}</p>
                             </div>
+
                             <div class="card-action">
                                 <a href="#" class="btn waves-effect waves-light">Apply</a>
                                 <a href="#" class="btn-flat waves-effect waves-darken grey-text darken-2">More info</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb0" ng-show="!jobs.length">
+                    <div class="col s12">
+                        <div class="card white">
+                            <div class="card-content">
+                                <p>No jobs to show.</p>
                             </div>
                         </div>
                     </div>
@@ -95,9 +104,3 @@
         </div>
     </div>
 </main>
-
-<script>
-    $(function() {
-        $('select').material_select();
-    });
-</script>

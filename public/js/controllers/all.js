@@ -1,11 +1,13 @@
 // Pubic / JS / Controllers / Jobs
 var appControllers = angular.module('appControllers', ['appServices']);
 
-appControllers.controller('JobsController', ['$scope', 'JobsService', function($scope, JobsService) {
+appControllers.controller('JobsController', ['$scope', 'JobsService', 'CitiesService', function($scope, JobsService, CitiesService) {
+    $scope.cities = CitiesService.list();
+
     // Search jobs
     $scope.search = {};
     $scope.search.text = '';
-    $scope.search.location = 0;
+    $scope.search.location = 1;
 
     // Sort jobs
     $scope.sort = {};
@@ -53,19 +55,23 @@ appControllers.controller('JobsController', ['$scope', 'JobsService', function($
     });
 }]);
 
-appControllers.controller('JobsAddController', ['$scope', 'JobsService', function($scope, JobsService) {
+appControllers.controller('JobsAddController', ['$scope', '$location', 'JobsService', 'CitiesService', function($scope, $location, JobsService, CitiesService) {
+    $scope.cities = CitiesService.list();
+
     $scope.job = {};
 
     $scope.job.data = {};
     $scope.job.data.title = '';
     $scope.job.data.description = '';
-    $scope.job.data.location = 0;
+    $scope.job.data.location = 1;
     $scope.job.data.salary = '';
 
     $scope.job.add = function() {
         $scope.job.data.location = parseInt($scope.job.data.location);
         JobsService.add($scope.job.data).success(function(response) {
-            console.log(response);
+
+            Materialize.toast('Your job has been posted!', 4000);
+            $location.path('/');
         });
     };
 }]);

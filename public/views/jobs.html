@@ -7,9 +7,9 @@
             <li class="bold active"><a class="collapsible-header"><i class="material-icons">&#xE164;</i> Sort By</a>
                 <div class="collapsible-body" style="display: block">
                     <ul>
-                        <li><a href="">Freshness</a></li>
-                        <li><a href="">Highest Salary</a></li>
-                        <li><a href="">Lowest Salary</a></li>
+                        <li><a href="javascript:void(0);" ng-click="sort.update('freshness')">Freshness <span ng-show="(sort.value == 'freshness' ? true : false)" class="green-text"><i class="material-icons">&#xE86C;</i></span></a></li>
+                        <li><a href="javascript:void(0);" ng-click="sort.update('highest')">Highest Salary <span ng-show="(sort.value == 'highest' ? true : false)" class="green-text"><i class="material-icons">&#xE86C;</i></span></a></li>
+                        <li><a href="javascript:void(0);" ng-click="sort.update('lowest')">Lowest Salary <span ng-show="(sort.value == 'lowest' ? true : false)" class="green-text"><i class="material-icons">&#xE86C;</i></span></a></li>
                     </ul>
                 </div>
             </li>
@@ -21,11 +21,11 @@
             <li class="bold active"><a class="collapsible-header"><i class="material-icons">&#xE152;</i> Filter Results</a>
                 <div class="collapsible-body" style="display: block">
                     <ul>
-                        <li><a href="">Any salary</a></li>
-                        <li><a href="">&lt; Rs. 3999</a></li>
-                        <li><a href="">Rs 4000 - Rs 7999</a></li>
-                        <li><a href="">Rs 8000 - Rs 11999</a></li>
-                        <li><a href="">&gt; Rs. 11999</a></li>
+                        <li><a href="javascript:void(0);" ng-click="filter.update(-1, -1)">Any salary <span ng-show="((filter.min == -1 && filter.max == -1) ? true : false)" class="green-text"><i class="material-icons">&#xE86C;</i></span></a></li>
+                        <li><a href="javascript:void(0);" ng-click="filter.update(-1, 3999)">&lt; Rs. 3999 <span ng-show="((filter.min == -1 && filter.max == 3999) ? true : false)" class="green-text"><i class="material-icons">&#xE86C;</i></span></a></li>
+                        <li><a href="javascript:void(0);" ng-click="filter.update(4000, 7999)">Rs 4000 - Rs 7999 <span ng-show="((filter.min == 4000 && filter.max == 7999) ? true : false)" class="green-text"><i class="material-icons">&#xE86C;</i></span></a></li>
+                        <li><a href="javascript:void(0);" ng-click="filter.update(8000, 11999)">Rs 8000 - Rs 11999 <span ng-show="((filter.min == 8000 && filter.max == 11999) ? true : false)" class="green-text"><i class="material-icons">&#xE86C;</i></span></a></li>
+                        <li><a href="javascript:void(0);" ng-click="filter.update(11999, -1)">&gt; Rs. 11999 <span ng-show="((filter.min == 11999 && filter.max == -1) ? true : false)" class="green-text"><i class="material-icons">&#xE86C;</i></span></a></li>
                     </ul>
                 </div>
             </li>
@@ -53,8 +53,8 @@
                                         <div class="col s4">
                                             <div class="input-field">
                                                 <select ng-model="search.location">
-                                                    <option value="" disabled="disabled">Choose location</option>
-                                                    <option value="1" selected="selected">Bangalore</option>
+                                                    <option value="0" selected="selected">Any</option>
+                                                    <option value="1">Bangalore</option>
                                                     <option value="2">Mumbai</option>
                                                 </select>
                                             </div>
@@ -78,6 +78,7 @@
                                 <span class="card-title">{{ job.title }}</span>
                                 <p class="teal-text tx-md">Salary Rs. {{ job.salary }} per month</p>
                                 <p class="mt10">{{ job.description }}</p>
+                                <p class="mt10">Location: {{ job.location }}</p>
                             </div>
                             <div class="card-action">
                                 <a href="#" class="btn waves-effect waves-light">Apply</a>
@@ -98,5 +99,5 @@
 <script>
     $(function() {
         $('select').material_select();
-    })
+    });
 </script>

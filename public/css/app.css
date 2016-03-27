@@ -14,6 +14,7 @@ html, body { background-color: #fafafa; }
 
     /* bottom */
     .mb0 { margin-bottom: 0px; }
+    .mb20 { margin-bottom: 20px; }
 
     /* right */
     .mr20 { margin-right: 20px; }
@@ -114,7 +115,7 @@ h1 i, h2 i, h3 i, h4 i, h5 i, h6 i {
 }
 .side-nav .collapsible .collapsible-body li, .side-nav .collapsible .collapsible-body li a {
     padding: 5px 0px;
-    line-height: normal;
+    line-height: 25px;
     height: auto;
 }
 /* ------------------ / Materialze Overrides ------------------*/

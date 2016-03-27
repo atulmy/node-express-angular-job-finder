@@ -1,15 +1,19 @@
 <!-- Sidebar -->
 <ul class="side-nav fixed" id="nav-mobile" style="width: 220px;">
     <li class="bold" style="border-bottom: 1px solid #ccc;"><a class="waves-effect waves-light center-align red-text tx-lg tx-uppercase" href="/">Job Finder</a></li>
+    <li>
+    </li>
 </ul>
 
 <main id="app-content">
     <div class="content">
         <div class="row">
             <div class="col m9">
+                <h2>Hire Smart. Hire Fast.</h2>
+
                 <h5>Post a job now</h5>
 
-                <div class="divider"></div>
+                <div class="divider mb20"></div>
 
                 <form ng-submit="job.add()">
                     <div class="row">
@@ -34,7 +38,7 @@
 
                         <div class="input-field col s6">
                             <select ng-model="job.data.location" required="required">
-                                <option value="" disabled selected>Choose location</option>
+                                <option value="0" disabled="disabled" selected="selected">Choose location</option>
                                 <option value="1">Bangalore</option>
                                 <option value="2">Mumbai</option>
                             </select>
@@ -53,7 +57,7 @@
             </div>
 
             <div class="col m3">
-
+                <img src="http://placehold.it/300x550" alt="Advertisement" class="responsive-img" />
             </div>
         </div>
     </div>
@@ -62,5 +66,5 @@
 <script>
     $(function() {
         $('select').material_select();
-    })
+    });
 </script>

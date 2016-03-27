@@ -5,17 +5,50 @@ appControllers.controller('JobsController', ['$scope', 'JobsService', function($
     // Search jobs
     $scope.search = {};
     $scope.search.text = '';
-    $scope.search.location = '';
+    $scope.search.location = 0;
+
+    // Sort jobs
+    $scope.sort = {};
+    $scope.sort.value = 'freshness';
+
+    // Filter jobs
+    $scope.filter = {};
+    $scope.filter.min = -1;
+    $scope.filter.max = -1;
+
+    // Apply search
     $scope.search.find = function() {
-        JobsService.list({sort: 'freshness', searchText: '', location: -1, filter: {min: -1, max: -1}}).success(function(data) {
+        JobsService.list({sort: $scope.sort.value, text: $scope.search.text, location: $scope.search.location, filter: {min: $scope.filter.min, max: $scope.filter.max}}).success(function(data) {
             $scope.jobs = data;
+
+            Materialize.toast('Results '+$scope.search.text+' and '+$scope.search.location, 2000);
         });
     };
 
-    $scope.sort = 'freshness';
+    // Apply sort
+    $scope.sort.update = function(sort) {
+        $scope.sort.value = sort;
+        JobsService.list({sort: $scope.sort.value, text: $scope.search.text, location: $scope.search.location, filter: {min: $scope.filter.min, max: $scope.filter.max}}).success(function(data) {
+            $scope.jobs = data;
+
+            Materialize.toast('Results updated by '+$scope.sort.value, 2000);
+        });
+    };
+
+    // Apply filter
+    $scope.filter.update = function(min, max) {
+        $scope.filter.min = min;
+        $scope.filter.max = max;
+
+        JobsService.list({sort: $scope.sort.value, text: $scope.search.text, location: $scope.search.location, filter: {min: $scope.filter.min, max: $scope.filter.max}}).success(function(data) {
+            $scope.jobs = data;
+
+            Materialize.toast('Results updated by salary', 2000);
+        });
+    };
 
     // Get jobs
-    JobsService.list({sort: $scope.sort, searchText: $scope.search.text, location: $scope.search.location}).success(function(data) {
+    JobsService.list().success(function(data) {
         $scope.jobs = data;
     });
 }]);

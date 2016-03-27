@@ -7,6 +7,8 @@ module.exports = function(app) {
 
         // List
         app.get('/api/jobs', function(request, response) {
+            console.log(request.param('order'));
+
             Jobs.find(function(error, jobs) {
                 if (error) {
                     response.send(error);

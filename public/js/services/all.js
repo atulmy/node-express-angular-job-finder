@@ -3,8 +3,9 @@ var appServices = angular.module('appServices', []);
 
 appServices.factory('JobsService', ['$http', function($http) {
     return {
-        list: function() {
-            return $http.get('/api/jobs');
+        list: function(params) {
+            params = params || {};
+            return $http.get('/api/jobs', {params: params});
         },
 
         add: function(job) {
@@ -16,13 +17,3 @@ appServices.factory('JobsService', ['$http', function($http) {
         }
     }
 }]);
-
-appServices.factory('FilterService', function() {
-    return {
-        sortBy: 'freshness',
-        filterBy: {
-            min: 0,
-            max: 3999
-        }
-    }
-});

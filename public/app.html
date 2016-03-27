@@ -33,47 +33,13 @@
 </head>
 <body>
     <header id="app-header">
-        <!-- Sidebar -->
-        <ul class="side-nav fixed" id="nav-mobile" style="width: 220px;" ng-controller="SidebarController">
-            <li class="bold" style="border-bottom: 1px solid #ccc;"><a class="waves-effect waves-light center-align red-text tx-lg tx-uppercase" href="/">Job Finder</a></li>
-
-            <li class="no-padding">
-                <ul class="collapsible" data-collapsible="accordion">
-                    <li class="bold active"><a class="collapsible-header waves-effect waves-teal"><i class="material-icons">&#xE164;</i> Sort By</a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="">Freshness</a></li>
-                                <li><a href="">Highest Salary</a></li>
-                                <li><a href="">Lowest Salary</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="no-padding">
-                <ul class="collapsible" data-collapsible="accordion">
-                    <li class="bold active"><a class="collapsible-header waves-effect waves-teal"><i class="material-icons">&#xE152;</i> Filter Results</a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="">&lt; Rs. 3999</a></li>
-                                <li><a href="">Rs 4000 - Rs 7999</a></li>
-                                <li><a href="">Rs 8000 - Rs 11999</a></li>
-                                <li><a href="">&gt; Rs. 11999</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-
         <!-- Top Navigation -->
         <nav class="top-nav">
             <div class="nav-wrapper">
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">&#xE5D2;</i></a>
 
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="/post-job" class="tx-uppercase">Hire</a></li>
+                    <li><a href="/hire" class="tx-uppercase">Hire</a></li>
                     <li><a class="dropdown-button" href="javascript:void(0);" data-activates="navbar-more" data-beloworigin="true"><i class="material-icons">&#xE5D4;</i></a></li>
                 </ul>
             </div>
@@ -85,10 +51,6 @@
         </nav>
     </header>
 
-    <main id="app-content">
-        <div class="content">
-            <div ng-view=""></div>
-        </div>
-    </main>
+    <div ng-view=""></div>
 </body>
 </html>

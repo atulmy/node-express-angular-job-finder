@@ -1,23 +1,102 @@
-<div class="row">
-    <div class="col m9">
-        <div class="row mb0" ng-repeat="job in jobs">
-            <div class="col s12">
-                <div class="card white">
-                    <div class="card-content">
-                        <span class="card-title">{{ job.title }}</span>
-                        <p class="teal-text tx-md">Salary Rs. {{ job.salary }} per month</p>
-                        <p class="mt10">{{ job.description }}</p>
+<!-- Sidebar -->
+<ul class="side-nav fixed" id="nav-mobile" style="width: 220px;">
+    <li class="bold" style="border-bottom: 1px solid #ccc;"><a class="waves-effect waves-light center-align red-text tx-lg tx-uppercase" href="/">Job Finder</a></li>
+
+    <li class="no-padding">
+        <ul class="collapsible" data-collapsible="accordion">
+            <li class="bold active"><a class="collapsible-header"><i class="material-icons">&#xE164;</i> Sort By</a>
+                <div class="collapsible-body" style="display: block">
+                    <ul>
+                        <li><a href="">Freshness</a></li>
+                        <li><a href="">Highest Salary</a></li>
+                        <li><a href="">Lowest Salary</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+
+    <li class="no-padding">
+        <ul class="collapsible" data-collapsible="accordion">
+            <li class="bold active"><a class="collapsible-header"><i class="material-icons">&#xE152;</i> Filter Results</a>
+                <div class="collapsible-body" style="display: block">
+                    <ul>
+                        <li><a href="">Any salary</a></li>
+                        <li><a href="">&lt; Rs. 3999</a></li>
+                        <li><a href="">Rs 4000 - Rs 7999</a></li>
+                        <li><a href="">Rs 8000 - Rs 11999</a></li>
+                        <li><a href="">&gt; Rs. 11999</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<main id="app-content">
+    <div class="content">
+        <div class="row">
+            <div class="col m9">
+                <div class="row mb0">
+                    <div class="col s12">
+                        <div class="card grey lighten-3">
+                            <div class="card-content">
+                                <span class="card-title">Search jobs</span>
+
+                                <form ng-submit="search.find()">
+                                    <div class="row mb0">
+                                        <div class="col s5">
+                                            <div class="input-field">
+                                                <input type="text" ng-model="search.text" placeholder="Eg Driver" />
+                                            </div>
+                                        </div>
+                                        <div class="col s4">
+                                            <div class="input-field">
+                                                <select ng-model="search.location">
+                                                    <option value="" disabled="disabled">Choose location</option>
+                                                    <option value="1" selected="selected">Bangalore</option>
+                                                    <option value="2">Mumbai</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col s3 center-align">
+                                            <div class="input-field">
+                                                <button class="btn waves-effect waves-light" type="submit" name="action">Search</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-action">
-                        <a href="#" class="btn">Apply</a>
-                        <a href="#" class="btn-flat waves-effect waves-darken">More info</a>
+                </div>
+
+                <div class="row mb0" ng-repeat="job in jobs">
+                    <div class="col s12">
+                        <div class="card white">
+                            <div class="card-content">
+                                <span class="card-title">{{ job.title }}</span>
+                                <p class="teal-text tx-md">Salary Rs. {{ job.salary }} per month</p>
+                                <p class="mt10">{{ job.description }}</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#" class="btn waves-effect waves-light">Apply</a>
+                                <a href="#" class="btn-flat waves-effect waves-darken grey-text darken-2">More info</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="col m3">
+                <img src="http://placehold.it/300x550" alt="Advertisement" class="responsive-img" />
+            </div>
         </div>
     </div>
+</main>
 
-    <div class="col m3">
-        <img src="http://placehold.it/300x550" alt="Advertisement" class="responsive-img" />
-    </div>
-</div>
+<script>
+    $(function() {
+        $('select').material_select();
+    })
+</script>

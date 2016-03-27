@@ -4,7 +4,7 @@ var app = angular.module('app', ['ngRoute', 'appControllers']);
 
 app.config(function($routeProvider, $locationProvider) {
     $routeProvider
-        .when('/post-job', {
+        .when('/hire', {
             templateUrl: 'views/jobs.add.html',
             controller: 'JobsAddController'
         })

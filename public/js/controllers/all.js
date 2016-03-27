@@ -4,6 +4,16 @@ var appControllers = angular.module('appControllers', ['appServices']);
 appControllers.controller('JobsController', ['$scope', 'JobsService', 'CitiesService', function($scope, JobsService, CitiesService) {
     $scope.cities = CitiesService.list();
 
+    $scope.city = function(cityId) {
+        var cityName = '';
+        $scope.cities.forEach(function(v) {
+            if(v.id == cityId) {
+                cityName = v.name;
+            }
+        });
+        return cityName;
+    };
+
     // Search jobs
     $scope.search = {};
     $scope.search.text = '';

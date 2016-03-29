@@ -1,5 +1,11 @@
 # JobFinder
-A Sample app using MEAN Stack. Demo: http://104.131.125.120:8080/
+A Sample app using MEAN Stack.
+
+## Local Installation
+1. `git clone https://github.com/atulmy/nodejs-jobfinder.git jobfinder`
+2. `cd jobfinder`
+3. `npm install`
+4. `node server.js`
 
 ## Built Using
 - MongoDB
